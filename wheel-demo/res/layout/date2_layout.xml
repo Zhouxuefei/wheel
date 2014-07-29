@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/layout_bg"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="30dp">
+
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/day"
+            android:layout_width="46dp"
+            android:layout_height="wrap_content"
+            wheel:shadow_colors="@array/shadow"
+            wheel:wheel_selector="@drawable/wheel_val_demo" />
+
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/month"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            wheel:wheel_background="@drawable/wheel_bg_demo" />
+
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            wheel:shadow_enabled="false"
+            wheel:wheel_background="@drawable/wheel_bg_demo"
+            wheel:wheel_selector="@drawable/wheel_val_demo" />
+    </LinearLayout>
+</LinearLayout>

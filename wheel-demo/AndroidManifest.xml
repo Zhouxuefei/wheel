@@ -29,6 +29,12 @@
                 <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.michaelchou.demo.Date2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
+            </intent-filter>
+        </activity>
 		<activity android:name="com.michaelchou.demo.PasswActivity" >
 		    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
