@@ -2,7 +2,7 @@ package com.michaelchou.demo;
 
 import java.util.Calendar;
 
-import com.michaelchou.R;
+import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.OnWheelClickedListener;
 import com.michaelchou.wheel.OnWheelScrollListener;
@@ -28,7 +28,7 @@ public class TimeActivity extends Activity {
 	
 		final WheelView hours = (WheelView) findViewById(R.id.hour);
 		hours.setViewAdapter(new NumericWheelAdapter(this, 0, 23));
-	
+        hours.setVisibleItems(3);
 		final WheelView mins = (WheelView) findViewById(R.id.mins);
 		mins.setViewAdapter(new NumericWheelAdapter(this, 0, 59, "%02d"));
 		mins.setCyclic(true);

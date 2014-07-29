@@ -4,7 +4,7 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.michaelchou.R;
+import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.OnWheelScrollListener;
 import com.michaelchou.wheel.WheelView;

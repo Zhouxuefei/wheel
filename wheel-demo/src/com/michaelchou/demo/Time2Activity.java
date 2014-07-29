@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import com.michaelchou.R;
+import com.michaelchou.demo.R;
 import com.michaelchou.wheel.WheelView;
 import com.michaelchou.wheel.adapter.AbstractWheelTextAdapter;
 import com.michaelchou.wheel.adapter.ArrayWheelAdapter;
