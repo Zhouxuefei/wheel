@@ -6,6 +6,7 @@
         <attr name="wheel_selector" format="reference" />
         <attr name="shadow_enabled" format="boolean" />
         <attr name="shadow_colors" format="reference" />
+        <attr name="visible_size" format="integer" />
     </declare-styleable>
 
 </resources>

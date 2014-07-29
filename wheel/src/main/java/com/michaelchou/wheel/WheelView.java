@@ -58,7 +58,7 @@ public class WheelView extends View {
     private int currentItem = 0;
 
     // Count of visible items
-    private int visibleItems = DEF_VISIBLE_ITEMS;
+    private int visibleItems;
 
     // Item height
     private int itemHeight = 0;
@@ -147,6 +147,8 @@ public class WheelView extends View {
             topShadow = new GradientDrawable(Orientation.TOP_BOTTOM, shadowColors);
             bottomShadow = new GradientDrawable(Orientation.BOTTOM_TOP, shadowColors);
         }
+        visibleItems = values.getInteger(R.styleable.WheelView_visible_size,DEF_VISIBLE_ITEMS);
+        values.recycle();
     }
 
     /**
@@ -723,7 +725,7 @@ public class WheelView extends View {
     /**
      * Scroll the wheel
      *
-     * @param itemsToSkip items to scroll
+     * @param itemsToScroll items to scroll
      * @param time        scrolling duration
      */
     public void scroll(int itemsToScroll, int time) {

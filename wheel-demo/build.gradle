@@ -12,7 +12,7 @@ android {
         minSdkVersion 10
         targetSdkVersion 20
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.1"
     }
 
     compileOptions {
@@ -36,9 +36,14 @@ android {
         abortOnError false
     }
 
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 }
 
 dependencies {
     compile project(':wheel')
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 }
+
+apply from: file('../gradle-mvn-push.gradle')
