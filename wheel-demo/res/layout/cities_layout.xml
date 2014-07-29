@@ -24,13 +24,15 @@
 		android:layout_marginTop="8dp"
 		android:orientation="horizontal">
 	
-   <kankan.wheel.widget.WheelView android:id="@+id/country"
+   <com.michaelchou.wheel.WheelView
+       android:id="@+id/country"
         android:layout_height="110dp"
         android:layout_width="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"/>
 	
-	<kankan.wheel.widget.WheelView android:id="@+id/city"
+	<com.michaelchou.wheel.WheelView
+        android:id="@+id/city"
 		android:layout_height="110dp"
 		android:layout_width="wrap_content"
         android:layout_gravity="center_vertical"

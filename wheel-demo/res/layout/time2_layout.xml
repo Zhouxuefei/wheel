@@ -15,16 +15,20 @@
         android:paddingRight="12dp"
         android:paddingTop="20dp">
       
-        <kankan.wheel.widget.WheelView android:id="@+id/day"
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/day"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
-        <kankan.wheel.widget.WheelView android:id="@+id/hour"
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/hour"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
-        <kankan.wheel.widget.WheelView android:id="@+id/mins"
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/mins"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
-        <kankan.wheel.widget.WheelView android:id="@+id/ampm"
+        <com.michaelchou.wheel.WheelView
+            android:id="@+id/ampm"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
     </LinearLayout>        

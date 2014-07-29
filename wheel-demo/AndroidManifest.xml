@@ -1,60 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="kankan.wheel.demo"
-      android:versionCode="1"
-      android:versionName="1.0">
+      package="com.michaelchou.demo">
       
-    <application android:icon="@drawable/wheel" android:label="WheelDemo">
+    <application android:icon="@drawable/wheel">
 
-		<activity android:name="kankan.wheel.demo.WheelDemo">
+		<activity android:name="com.michaelchou.demo.WheelDemo">
 		    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 		</activity>
-		<activity android:name="kankan.wheel.demo.TimeActivity" android:label="Time">
+		<activity android:name="com.michaelchou.demo.TimeActivity" >
 		    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
 		</activity>
-        <activity android:name="kankan.wheel.demo.Time2Activity" android:label="Time 2">
+        <activity android:name="com.michaelchou.demo.Time2Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
         </activity>
-        <activity android:name="kankan.wheel.demo.DateActivity" android:label="Date">
+        <activity android:name="com.michaelchou.demo.DateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
         </activity>
-		<activity android:name="kankan.wheel.demo.PasswActivity" android:label="Password">
+		<activity android:name="com.michaelchou.demo.PasswActivity" >
 		    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
 		</activity>
-        <activity android:name="kankan.wheel.demo.SlotMachineActivity" android:label="Slot Machine">
+        <activity android:name="com.michaelchou.demo.SlotMachineActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
         </activity>
-		<activity android:name="kankan.wheel.demo.CitiesActivity" android:label="Cities">
+		<activity android:name="com.michaelchou.demo.CitiesActivity">
 		    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
+                <category android:name="com.michaelchou.WHEEL_SAMPLE"/>
             </intent-filter>
 		</activity>
-        <!-- activity android:name="kankan.wheel.demo.SpeedActivity" android:label="Speed">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="kankan.wheel.WHEEL_SAMPLE"/>
-            </intent-filter>
-        </activity-->
 
     </application>
 
