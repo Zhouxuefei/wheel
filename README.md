@@ -2,11 +2,11 @@
 =====
 
 wheel is base on [AndroidWheel](https://code.google.com/p/android-wheel/).
-There are 4 attrs
-wheel_background: change wheel background ,default wheel_bg
-wheel_selector: change wheel selector, default wheel_val
-shadow_enabled: make shadow enabled, default true
-shadow_colors: change shadow colors,default " black to transparent"
+#### There are 4 attrs
+* wheel_background: change wheel background ,default wheel_bg
+* wheel_selector: change wheel selector, default wheel_val
+* shadow_enabled: make shadow enabled, default true
+* shadow_colors: change shadow colors,default " black to transparent"
 
 ### Gradle
 
@@ -20,7 +20,6 @@ dependencies {
 ### In Layout
 
 ```xml
-// url is the URL to download.
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:wheel="http://schemas.android.com/apk/res-auto"
@@ -43,7 +42,6 @@ dependencies {
 ### In Style
 
 ```xml
-// url is the URL to download.
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
