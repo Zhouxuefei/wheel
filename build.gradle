@@ -14,5 +14,5 @@ allprojects {
         jcenter()
     }
 
-    version = "1.0.0"
+    version = VERSION_NAME
 }

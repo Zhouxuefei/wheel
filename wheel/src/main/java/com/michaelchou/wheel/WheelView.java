@@ -147,7 +147,7 @@ public class WheelView extends View {
             topShadow = new GradientDrawable(Orientation.TOP_BOTTOM, shadowColors);
             bottomShadow = new GradientDrawable(Orientation.BOTTOM_TOP, shadowColors);
         }
-        visibleItems = values.getInteger(R.styleable.WheelView_visible_size,DEF_VISIBLE_ITEMS);
+        visibleItems = values.getInteger(R.styleable.WheelView_visible_size, DEF_VISIBLE_ITEMS);
         values.recycle();
     }
 
@@ -405,10 +405,9 @@ public class WheelView extends View {
 
                 int old = currentItem;
                 currentItem = index;
-
+                viewAdapter.setCurrentItem(currentItem);
                 notifyChangingListeners(old, currentItem);
-
-                invalidate();
+                invalidateWheel(false);
             }
         }
     }
@@ -577,9 +576,8 @@ public class WheelView extends View {
 
         if (viewAdapter != null && viewAdapter.getItemsCount() > 0) {
             updateView();
-
-            drawItems(canvas);
             drawCenterRect(canvas);
+            drawItems(canvas);
         }
         if (shadowEnabled) {
             drawShadows(canvas);
@@ -726,7 +724,7 @@ public class WheelView extends View {
      * Scroll the wheel
      *
      * @param itemsToScroll items to scroll
-     * @param time        scrolling duration
+     * @param time          scrolling duration
      */
     public void scroll(int itemsToScroll, int time) {
         int distance = itemsToScroll * getItemHeight() - scrollingOffset;

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.WheelView;
+import com.michaelchou.wheel.adapter.AbstractWheelTextAdapter;
 import com.michaelchou.wheel.adapter.ArrayWheelAdapter;
 import com.michaelchou.wheel.adapter.NumericWheelAdapter;
 
@@ -61,7 +62,10 @@ public class Date2Activity extends Activity {
         calendar.set(Calendar.MONTH, month.getCurrentItem());
         
         int maxDays = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        day.setViewAdapter(new DateNumericAdapter(this, 1, maxDays, calendar.get(Calendar.DAY_OF_MONTH) - 1));
+        AbstractWheelTextAdapter adapter = new DateNumericAdapter(this, 1, maxDays, calendar.get(Calendar.DAY_OF_MONTH) - 1);
+        day.setViewAdapter(adapter);
+        adapter.setItemResource(R.layout.wheel_item_text);
+        adapter.setItemTextResource(R.id.text);
         int curDay = Math.min(maxDays, day.getCurrentItem() + 1);
         day.setCurrentItem(curDay - 1, true);
     }
