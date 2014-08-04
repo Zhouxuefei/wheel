@@ -2,7 +2,6 @@ package com.michaelchou.demo;
 
 import java.util.Calendar;
 
-import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.OnWheelClickedListener;
 import com.michaelchou.wheel.OnWheelScrollListener;

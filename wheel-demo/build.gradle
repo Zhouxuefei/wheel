@@ -11,7 +11,7 @@ android {
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 20
-        versionCode 1
+        versionCode Integer.parseInt(VERSION_CODE)
         versionName VERSION_NAME
     }
 
@@ -43,6 +43,7 @@ android {
 
 dependencies {
     compile project(':wheel')
+    compile project(':adapter')
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 }
 

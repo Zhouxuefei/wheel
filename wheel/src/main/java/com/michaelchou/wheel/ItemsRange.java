@@ -40,7 +40,7 @@ public class ItemsRange {
      *
      * @return the number of the first item
      */
-    public int getFirst() {
+    public int getFirstItem() {
         return first;
     }
 
@@ -49,8 +49,8 @@ public class ItemsRange {
      *
      * @return the number of last item
      */
-    public int getLast() {
-        return getFirst() + getCount() - 1;
+    public int getLastItem() {
+        return getFirstItem() + getCount() - 1;
     }
 
     /**
@@ -68,7 +68,7 @@ public class ItemsRange {
      * @param index the item number
      * @return true if item is contained
      */
-    public boolean contains(int index) {
-        return index >= getFirst() && index <= getLast();
+    public boolean containsItem(int index) {
+        return index >= getFirstItem() && index <= getLastItem();
     }
 }

@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import com.michaelchou.demo.R;
 import com.michaelchou.wheel.WheelView;
 import com.michaelchou.wheel.adapter.AbstractWheelTextAdapter;
 import com.michaelchou.wheel.adapter.ArrayWheelAdapter;
@@ -77,12 +76,12 @@ public class Time2Activity extends Activity {
         }
 
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
+        public View getView(int index, View cachedView, ViewGroup parent) {
             int day = -daysCount/2 + index;
             Calendar newCalendar = (Calendar) calendar.clone();
             newCalendar.roll(Calendar.DAY_OF_YEAR, day);
             
-            View view = super.getItem(index, cachedView, parent);
+            View view = super.getView(index, cachedView, parent);
             TextView weekday = (TextView) view.findViewById(R.id.time2_weekday);
             if (day == 0) {
                 weekday.setText("");
@@ -105,12 +104,12 @@ public class Time2Activity extends Activity {
         }
         
         @Override
-        public int getItemsCount() {
+        public int getCount() {
             return daysCount + 1;
         }
         
         @Override
-        protected CharSequence getItemText(int index) {
+        public CharSequence getItem(int index) {
             return "";
         }
     }

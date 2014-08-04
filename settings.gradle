@@ -1,2 +1,3 @@
 include ':wheel'
+include ':adapter'
 include ':wheel-demo'

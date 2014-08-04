@@ -1,6 +1,5 @@
 package com.michaelchou.demo;
 
-import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.OnWheelScrollListener;
 import com.michaelchou.wheel.WheelView;

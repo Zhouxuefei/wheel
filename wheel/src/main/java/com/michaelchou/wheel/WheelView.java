@@ -9,9 +9,6 @@ package com.michaelchou.wheel;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.michaelchou.wheel.adapter.WheelViewAdapter;
-import com.michaelchou.wheel.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -375,11 +372,11 @@ public class WheelView extends View {
      * @param animated the animation flag
      */
     public void setCurrentItem(int index, boolean animated) {
-        if (viewAdapter == null || viewAdapter.getItemsCount() == 0) {
+        if (viewAdapter == null || viewAdapter.getCount() == 0) {
             return; // throw?
         }
 
-        int itemCount = viewAdapter.getItemsCount();
+        int itemCount = viewAdapter.getCount();
         if (index < 0 || index >= itemCount) {
             if (isCyclic) {
                 while (index < 0) {
@@ -574,7 +571,7 @@ public class WheelView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (viewAdapter != null && viewAdapter.getItemsCount() > 0) {
+        if (viewAdapter != null && viewAdapter.getCount() > 0) {
             updateView();
             drawCenterRect(canvas);
             drawItems(canvas);
@@ -670,7 +667,7 @@ public class WheelView extends View {
         int count = scrollingOffset / itemHeight;
 
         int pos = currentItem - count;
-        int itemCount = viewAdapter.getItemsCount();
+        int itemCount = viewAdapter.getCount();
 
         int fixPos = scrollingOffset % itemHeight;
         if (Math.abs(fixPos) <= itemHeight / 2) {
@@ -781,18 +778,18 @@ public class WheelView extends View {
         }
 
         if (!updated) {
-            updated = firstItem != range.getFirst() || itemsLayout.getChildCount() != range.getCount();
+            updated = firstItem != range.getFirstItem() || itemsLayout.getChildCount() != range.getCount();
         }
 
-        if (firstItem > range.getFirst() && firstItem <= range.getLast()) {
-            for (int i = firstItem - 1; i >= range.getFirst(); i--) {
+        if (firstItem > range.getFirstItem() && firstItem <= range.getLastItem()) {
+            for (int i = firstItem - 1; i >= range.getFirstItem(); i--) {
                 if (!addViewItem(i, true)) {
                     break;
                 }
                 firstItem = i;
             }
         } else {
-            firstItem = range.getFirst();
+            firstItem = range.getFirstItem();
         }
 
         int first = firstItem;
@@ -875,8 +872,8 @@ public class WheelView extends View {
      * @return true if item index is not out of bounds or the wheel is cyclic
      */
     private boolean isValidItemIndex(int index) {
-        return viewAdapter != null && viewAdapter.getItemsCount() > 0 &&
-                (isCyclic || index >= 0 && index < viewAdapter.getItemsCount());
+        return viewAdapter != null && viewAdapter.getCount() > 0 &&
+                (isCyclic || index >= 0 && index < viewAdapter.getCount());
     }
 
     /**
@@ -886,12 +883,12 @@ public class WheelView extends View {
      * @return item view or empty view if index is out of bounds
      */
     private View getItemView(int index) {
-        if (viewAdapter == null || viewAdapter.getItemsCount() == 0) {
+        if (viewAdapter == null || viewAdapter.getCount() == 0) {
             return null;
         }
-        int count = viewAdapter.getItemsCount();
+        int count = viewAdapter.getCount();
         if (!isValidItemIndex(index)) {
-            return viewAdapter.getEmptyItem(recycle.getEmptyItem(), itemsLayout);
+            return viewAdapter.getEmptyView(recycle.getEmptyItem(), itemsLayout);
         } else {
             while (index < 0) {
                 index = count + index;
@@ -899,7 +896,7 @@ public class WheelView extends View {
         }
 
         index %= count;
-        return viewAdapter.getItem(index, recycle.getItem(), itemsLayout);
+        return viewAdapter.getView(index, recycle.getItem(), itemsLayout);
     }
 
     /**

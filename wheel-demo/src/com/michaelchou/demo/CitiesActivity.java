@@ -1,6 +1,5 @@
 package com.michaelchou.demo;
 
-import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.OnWheelScrollListener;
 import com.michaelchou.wheel.WheelView;
@@ -91,20 +90,22 @@ public class CitiesActivity extends Activity {
         }
 
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
-            View view = super.getItem(index, cachedView, parent);
+        public View getView(int index, View cachedView, ViewGroup parent) {
+            View view = super.getView(index, cachedView, parent);
             ImageView img = (ImageView) view.findViewById(R.id.flag);
             img.setImageResource(flags[index]);
             return view;
         }
         
         @Override
-        public int getItemsCount() {
+        public int getCount() {
             return countries.length;
         }
-        
+
+
+
         @Override
-        protected CharSequence getItemText(int index) {
+        public CharSequence getItem(int index) {
             return countries[index];
         }
     }

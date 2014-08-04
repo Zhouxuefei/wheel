@@ -98,9 +98,9 @@ public class Date2Activity extends Activity {
         }
         
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
+        public View getView(int index, View cachedView, ViewGroup parent) {
             currentItem = index;
-            return super.getItem(index, cachedView, parent);
+            return super.getView(index, cachedView, parent);
         }
     }
     
@@ -132,9 +132,9 @@ public class Date2Activity extends Activity {
         }
         
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
+        public View getView(int index, View cachedView, ViewGroup parent) {
             currentItem = index;
-            return super.getItem(index, cachedView, parent);
+            return super.getView(index, cachedView, parent);
         }
     }
 }

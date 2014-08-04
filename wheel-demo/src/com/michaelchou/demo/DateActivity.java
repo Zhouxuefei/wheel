@@ -2,7 +2,6 @@ package com.michaelchou.demo;
 
 import java.util.Calendar;
 
-import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.WheelView;
 import com.michaelchou.wheel.adapter.ArrayWheelAdapter;
@@ -95,9 +94,9 @@ public class DateActivity extends Activity {
         }
         
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
+        public View getView(int index, View cachedView, ViewGroup parent) {
             currentItem = index;
-            return super.getItem(index, cachedView, parent);
+            return super.getView(index, cachedView, parent);
         }
     }
     
@@ -129,9 +128,9 @@ public class DateActivity extends Activity {
         }
         
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
+        public View getView(int index, View cachedView, ViewGroup parent) {
             currentItem = index;
-            return super.getItem(index, cachedView, parent);
+            return super.getView(index, cachedView, parent);
         }
     }
 }

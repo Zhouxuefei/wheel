@@ -8,7 +8,8 @@ import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.OnWheelScrollListener;
 import com.michaelchou.wheel.WheelView;
-import com.michaelchou.wheel.adapter.AbstractWheelAdapter;
+import com.michaelchou.wheel.WheelViewAdapter;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -31,8 +32,8 @@ public class SlotMachineActivity extends Activity {
         initWheel(R.id.slot_1);
         initWheel(R.id.slot_2);
         initWheel(R.id.slot_3);
-        
-        Button mix = (Button)findViewById(R.id.btn_mix);
+
+        Button mix = (Button) findViewById(R.id.btn_mix);
         mix.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 mixWheel(R.id.slot_1);
@@ -40,24 +41,25 @@ public class SlotMachineActivity extends Activity {
                 mixWheel(R.id.slot_3);
             }
         });
-        
+
         updateStatus();
     }
-    
+
     // Wheel scrolled flag
     private boolean wheelScrolled = false;
-    
+
     // Wheel scrolled listener
     OnWheelScrollListener scrolledListener = new OnWheelScrollListener() {
         public void onScrollingStarted(WheelView wheel) {
             wheelScrolled = true;
         }
+
         public void onScrollingFinished(WheelView wheel) {
             wheelScrolled = false;
             updateStatus();
         }
     };
-    
+
     // Wheel changed listener
     private OnWheelChangedListener changedListener = new OnWheelChangedListener() {
         public void onChanged(WheelView wheel, int oldValue, int newValue) {
@@ -66,7 +68,7 @@ public class SlotMachineActivity extends Activity {
             }
         }
     };
-    
+
     /**
      * Updates status
      */
@@ -81,78 +83,83 @@ public class SlotMachineActivity extends Activity {
 
     /**
      * Initializes wheel
+     *
      * @param id the wheel widget Id
      */
     private void initWheel(int id) {
         WheelView wheel = getWheel(id);
         wheel.setViewAdapter(new SlotMachineAdapter(this));
-        wheel.setCurrentItem((int)(Math.random() * 10));
-        
+        wheel.setCurrentItem((int) (Math.random() * 10));
+
         wheel.addChangingListener(changedListener);
         wheel.addScrollingListener(scrolledListener);
         wheel.setCyclic(true);
         wheel.setEnabled(false);
     }
-    
+
     /**
      * Returns wheel by Id
+     *
      * @param id the wheel Id
      * @return the wheel with passed Id
      */
     private WheelView getWheel(int id) {
         return (WheelView) findViewById(id);
     }
-    
+
     /**
      * Tests wheels
-     * @return true 
+     *
+     * @return true
      */
     private boolean test() {
         int value = getWheel(R.id.slot_1).getCurrentItem();
         return testWheelValue(R.id.slot_2, value) && testWheelValue(R.id.slot_3, value);
     }
-    
+
     /**
      * Tests wheel value
-     * @param id the wheel Id
+     *
+     * @param id    the wheel Id
      * @param value the value to test
      * @return true if wheel value is equal to passed value
      */
     private boolean testWheelValue(int id, int value) {
         return getWheel(id).getCurrentItem() == value;
     }
-    
+
     /**
      * Mixes wheel
+     *
      * @param id the wheel id
      */
     private void mixWheel(int id) {
         WheelView wheel = getWheel(id);
-        wheel.scroll(-350 + (int)(Math.random() * 50), 2000);
+        wheel.scroll(-350 + (int) (Math.random() * 50), 2000);
     }
-    
+
     /**
      * Slot machine adapter
      */
-    private class SlotMachineAdapter extends AbstractWheelAdapter {
+    private class SlotMachineAdapter extends WheelViewAdapter {
         // Image size
         final int IMAGE_WIDTH = 60;
         final int IMAGE_HEIGHT = 36;
-        
+
         // Slot machine symbols
-        private final int items[] = new int[] {
+        private final int items[] = new int[]{
                 android.R.drawable.star_big_on,
                 android.R.drawable.stat_sys_warning,
                 android.R.drawable.radiobutton_on_background,
                 android.R.drawable.ic_delete
         };
-        
+
         // Cached images
         private List<SoftReference<Bitmap>> images;
-        
+
         // Layout inflater
         private Context context;
-        
+
         /**
          * Constructor
          */
@@ -163,7 +170,7 @@ public class SlotMachineActivity extends Activity {
                 images.add(new SoftReference<Bitmap>(loadImage(id)));
             }
         }
-        
+
         /**
          * Loads image from resources
          */
@@ -175,15 +182,20 @@ public class SlotMachineActivity extends Activity {
         }
 
         @Override
-        public int getItemsCount() {
+        public int getCount() {
             return items.length;
+        }
+
+        @Override
+        public Integer getItem(int position) {
+            return items[position];
         }
 
         // Layout params for image view
         final LayoutParams params = new LayoutParams(IMAGE_WIDTH, IMAGE_HEIGHT);
-        
+
         @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
+        public View getView(int index, View cachedView, ViewGroup parent) {
             ImageView img;
             if (cachedView != null) {
                 img = (ImageView) cachedView;
@@ -194,11 +206,11 @@ public class SlotMachineActivity extends Activity {
             SoftReference<Bitmap> bitmapRef = images.get(index);
             Bitmap bitmap = bitmapRef.get();
             if (bitmap == null) {
-                bitmap = loadImage(items[index]);
+                bitmap = loadImage(getItem(index));
                 images.set(index, new SoftReference<Bitmap>(bitmap));
             }
             img.setImageBitmap(bitmap);
-            
+
             return img;
         }
     }

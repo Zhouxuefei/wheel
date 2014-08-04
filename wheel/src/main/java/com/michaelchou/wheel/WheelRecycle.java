@@ -48,7 +48,7 @@ public class WheelRecycle {
     public int recycleItems(LinearLayout layout, int firstItem, ItemsRange range) {
         int index = firstItem;
         for (int i = 0; i < layout.getChildCount(); ) {
-            if (!range.contains(index)) {
+            if (!range.containsItem(index)) {
                 recycleView(layout.getChildAt(i), index);
                 layout.removeViewAt(i);
                 if (i == 0) { // first item
@@ -115,7 +115,7 @@ public class WheelRecycle {
      * @param index the index of view
      */
     private void recycleView(View view, int index) {
-        int count = wheel.getViewAdapter().getItemsCount();
+        int count = wheel.getViewAdapter().getCount();
 
         if ((index < 0 || index >= count) && !wheel.isCyclic()) {
             // empty view

@@ -32,19 +32,19 @@ public class ArrayWheelAdapter<T> extends AbstractWheelTextAdapter {
     }
 
     @Override
-    public CharSequence getItemText(int index) {
-        if (index >= 0 && index < items.length) {
-            T item = items[index];
+    public int getCount() {
+        return items.length;
+    }
+
+    @Override
+    public CharSequence getItem(int position) {
+        if (position >= 0 && position < items.length) {
+            Object item = items[position];
             if (item instanceof CharSequence) {
                 return (CharSequence) item;
             }
             return item.toString();
         }
         return null;
-    }
-
-    @Override
-    public int getItemsCount() {
-        return items.length;
     }
 }

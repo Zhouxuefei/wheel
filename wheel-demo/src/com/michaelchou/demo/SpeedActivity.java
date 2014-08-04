@@ -1,6 +1,5 @@
 package com.michaelchou.demo;
 
-import com.michaelchou.demo.R;
 import com.michaelchou.wheel.OnWheelChangedListener;
 import com.michaelchou.wheel.WheelView;
 import com.michaelchou.wheel.adapter.ArrayWheelAdapter;
@@ -73,8 +72,8 @@ public class SpeedActivity extends Activity {
         }
         
         @Override
-        public CharSequence getItemText(int index) {
-            if (index >= 0 && index < getItemsCount()) {
+        public CharSequence getItem(int index) {
+            if (index >= 0 && index < getCount()) {
                 int value = index * step;
                 return Integer.toString(value);
             }

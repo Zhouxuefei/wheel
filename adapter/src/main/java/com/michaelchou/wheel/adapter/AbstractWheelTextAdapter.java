@@ -15,10 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.michaelchou.wheel.WheelViewAdapter;
+
 /**
  * Abstract wheel adapter provides common functionality for adapters.
  */
-public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
+public abstract class AbstractWheelTextAdapter extends WheelViewAdapter {
 
     /**
      * Text view resource. Used as a default view for adapter.
@@ -192,17 +194,17 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
      * @param index the item index
      * @return the text of specified items
      */
-    protected abstract CharSequence getItemText(int index);
+    public abstract CharSequence getItem(int index);
 
     @Override
-    public View getItem(int index, View convertView, ViewGroup parent) {
-        if (index >= 0 && index < getItemsCount()) {
+    public View getView(int index, View convertView, ViewGroup parent) {
+        if (index >= 0 && index < getCount()) {
             if (convertView == null) {
                 convertView = getView(itemResourceId, parent);
             }
             TextView textView = getTextView(convertView, itemTextResourceId);
             if (textView != null) {
-                CharSequence text = getItemText(index);
+                CharSequence text = getItem(index);
                 if (text == null) {
                     text = "";
                 }
@@ -219,7 +221,7 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     }
 
     @Override
-    public View getEmptyItem(View convertView, ViewGroup parent) {
+    public View getEmptyView(View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = getView(emptyItemResourceId, parent);
         }
