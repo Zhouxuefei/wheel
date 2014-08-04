@@ -214,7 +214,7 @@ public abstract class AbstractWheelTextAdapter extends WheelViewAdapter {
                     configureTextView(textView);
                 }
             }
-            textView.setSelected(index == currentItem);
+            textView.setSelected(isCurrentItem(index));
             return convertView;
         }
         return null;

@@ -27,14 +27,18 @@ public abstract class WheelViewAdapter extends BaseAdapter {
         return null;
     }
 
-    protected int currentItem;
+    int currentItem;
 
-    protected void setCurrentItem(int index) {
+    void setCurrentItem(int index) {
         currentItem = index;
     }
 
     @Override
     public long getItemId(int position) {
         return position;
+    }
+
+    protected boolean isCurrentItem(int index) {
+        return currentItem == index;
     }
 }
